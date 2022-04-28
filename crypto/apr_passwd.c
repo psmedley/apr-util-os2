@@ -39,9 +39,9 @@
 
 static const char * const apr1_id = "$apr1$";
 
-#if !defined(WIN32) && !defined(BEOS) && !defined(NETWARE)
+#if !defined(WIN32) && !defined(BEOS) && !defined(NETWARE) 
 #if defined(APU_CRYPT_THREADSAFE) || !APR_HAS_THREADS || \
-    defined(CRYPT_R_CRYPTD) || defined(CRYPT_R_STRUCT_CRYPT_DATA)
+    defined(CRYPT_R_CRYPTD) || defined(CRYPT_R_STRUCT_CRYPT_DATA) || defined(__OS2__)
 
 #define crypt_mutex_lock()
 #define crypt_mutex_unlock()
