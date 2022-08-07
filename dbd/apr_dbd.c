@@ -186,6 +186,8 @@ APU_DECLARE(apr_status_t) apr_dbd_get_driver(apr_pool_t *pool, const char *name,
 #elif defined(WIN32) || defined(__CYGWIN__)
     apr_snprintf(modname, sizeof(modname),
                  "apr_dbd_%s-" APU_STRINGIFY(APU_MAJOR_VERSION) ".dll", name);
+#elif defined(__OS2__)
+    apr_snprintf(modname, sizeof(modname), "dbd%s.dll", name);
 #else
     apr_snprintf(modname, sizeof(modname),
                  "apr_dbd_%s-" APU_STRINGIFY(APU_MAJOR_VERSION) ".so", name);
