@@ -188,11 +188,12 @@ APU_DECLARE(apr_status_t) apr_dbd_get_driver(apr_pool_t *pool, const char *name,
                  "apr_dbd_%s-" APU_STRINGIFY(APU_MAJOR_VERSION) ".dll", name);
 #elif defined(__OS2__)
     apr_snprintf(modname, sizeof(modname), "dbd%s.dll", name);
+    apr_snprintf(symname, sizeof(symname), "_apr_dbd_%s_driver", name);
 #else
     apr_snprintf(modname, sizeof(modname),
                  "apr_dbd_%s-" APU_STRINGIFY(APU_MAJOR_VERSION) ".so", name);
-#endif
     apr_snprintf(symname, sizeof(symname), "apr_dbd_%s_driver", name);
+#endif
     rv = apu_dso_load(NULL, &symbol, modname, symname, pool);
     if (rv == APR_SUCCESS || rv == APR_EINIT) { /* previously loaded?!? */
         *driver = symbol;

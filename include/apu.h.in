@@ -81,7 +81,7 @@
 #define APU_DECLARE_DATA             __declspec(dllimport)
 #endif
 
-#if !defined(WIN32) || defined(APU_MODULE_DECLARE_STATIC)
+#if (!defined(WIN32) && !defined(__OS2__))|| defined(APU_MODULE_DECLARE_STATIC)
 /**
  * Declare a dso module's exported module structure as APU_MODULE_DECLARE_DATA.
  *

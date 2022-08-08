@@ -1,8 +1,0 @@
-;
-; dbdmysql.def (created by emximp)
-;
-LIBRARY dbdmysql INITINSTANCE TERMINSTANCE
-EXPORTS
-  ; segment TEXT32
-  "_apr_dbd_mysql_driver"                                               ; magicseg='TEXT32' len=21
-
