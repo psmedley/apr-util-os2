@@ -145,7 +145,7 @@ apr_status_t apu_dso_load(apr_dso_handle_t **dlhandleptr,
 
     for (i = 0; i < paths->nelts; ++i)
     {
-#if defined(WIN32)
+#if defined(WIN32) || defined(__OS2__)
         /* Use win32 dso search semantics and attempt to
          * load the relative lib on the first pass.
          */
